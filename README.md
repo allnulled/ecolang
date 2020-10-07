@@ -2,6 +2,16 @@
 
 Lenguaje para crear economías realistas. En castellano.
 
+## ¿Por qué nace `ecolang`?
+
+Evidentemente, la economía actual es una mofa de vuestra cobardía, un ensalzamiento de vuestra ruindad, y un esputo a vuestra inteligencia. 8 personas no pueden tener lo mismo que media humanidad (4.000.000.000 personas). Pero sois esclavos, no podéis hacer nada, os tienen acorralados entre las leyes, y la economía del Mercado Libre.
+
+Sobre todo, esclavos mentales, os tienen bien atados.
+
+Este lenguaje permite hacer análisis realistas de los recursos, y comprender la economía de la naturaleza, la verdadera economía, no la mierda esclavista que tenéis ahora, donde los ratios de desigualdad son irrisorios.
+
+Ojalá os sirva, ni que sea de inspiración, pasando por eclipsar a mi persona del mundo del dinero (de lo cual no me acostumbro, pero bueno, no conozco otra cosa en realidad que vivir siempre con lo justo, y no saber a qué huele la libertad financiera). Ojalá os sirva, y no le hagáis pasar a otros lo que a mí, pero tampoco que los que están peor queden en un segundo plano en vuestros sucios medios de comunicación elitistas putrefactos.
+
 ## Instalación
 
 ```bash
