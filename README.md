@@ -67,6 +67,7 @@ Los programas en `ecolang` soportan, actualmente, las siguientes sentencias:
   - `Preguntas`. Sirve para interrogar a `ecolang` sobre:
      - `posibilidad`: es una pregunta que del tipo: `¿se puede obtener tal recurso?`
      - `necesidad`: es una pregunta que del tipo: `¿qué se necesita para obtener tal recurso?`
+  - `Comentarios`: Sirven para añadir comentarios independientemente del programa.
 
 
 ### Cuantificadores de magnitud
@@ -103,7 +104,7 @@ Las magnitudes son unidades de medida de algún aspecto de la realidad. Actualme
   - `toneladas`/`tonelada`: unidad de **masa**.
   - `litros`/`litro`: unidad de **volumen**.
   - `áreas`/`área`: unidad de **superficie**.
-  - `grados sexagesimales`/`grado sexagesimal`: de medida de **ángulos sexagesimales**. Notación no soportada por ahora.
+  - `grados sexagesimales`/`grado sexagesimal`: de medida de **ángulos sexagesimales**. No soportada.
   - `minutos de arco`/`minuto de arco`: unidad del **ángulo plano**.
   - `segundos de arco`/`segundo de arco`: 
   - `minutos`/`minuto`: unidad de **tiempo**.
