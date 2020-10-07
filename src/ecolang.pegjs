@@ -21,7 +21,7 @@ Sentencia_completa = sentencia:Nucleo_de_sentencia (EOL+/EOF) {return sentencia}
 Nucleo_de_sentencia = Definicion_de_recurso / Definicion_de_existencias / Comentario / Cuestion
 Comentario = "#" comentario:Resto_de_linea {return {tipo:"comentario", comentario}}
 Cuestion = Cuestion_sobre_necesidad / Cuestion_sobre_posibilidad
-Cuestion_sobre_posibilidad = ("¿se puede obtener "/"¿Se puede obtener ")
+Cuestion_sobre_posibilidad = ("¿se puede obtener "/"¿Se puede obtener "/"¿se pueden obtener "/"¿Se pueden obtener ")
   recurso:Recurso_a_mencionar_en_pregunta "?"
   {return {tipo: "cuestion sobre obtención", ...recurso}}
 Cuestion_sobre_necesidad = ("¿qué se necesita para obtener "/"¿Qué se necesita para obtener ")
@@ -74,7 +74,7 @@ Determinante_cuantitativo = numero:Numero _ magnitud:Expresion_de_magnitud? {ret
 Expresion_de_magnitud = magnitud:Magnitud _ ("de" _)? {return magnitud}
 Magnitud = Cuantificador_de_magnitud? Unidad_de_magnitud {return text()}
 Cuantificador_de_magnitud = ("yotta"/"zetta"/"exa"/"peta"/"tera"/"giga"/"mega"/"kilo"/"hecto"/"deca"/"deci"/"centi"/"mili"/"micro"/"nano"/"pico"/"femto"/"atto"/"zepto"/"yocto")
-Unidad_de_magnitud = ("unidades"/"unidad"/"gramos"/"gramo"/"toneladas"/"tonelada"/"litros"/"litro"/"áreas"/"área"/"hectáreas"/"hectárea"/"grados sexagesimales"/"grado sexagesimal"/"minutos de arco"/"minuto de arco"/"segundos de arco"/"segundo de arco"/"minutos"/"minuto"/"horas"/"hora"/"días"/"día"/"semanas"/"semana"/"meses"/"mes"/"años"/"año"/"lustros"/"lustro"/"décadas"/"década"/"siglos"/"siglo"/"milenios"/"milenio"/"metros cúbicos"/"metro cúbico"/"metros cuadrados"/"metro cuadrado"/"metros"/"metro"/"kilogramonotas"/"kilogramonota"/"amperios"/"amperio"/"kelvins"/"kelvin"/"mols"/"mol"/"candelas"/"candela"/"hercios"/"hercio"/"newtons"/"newton"/"pascals"/"pascal"/"julios"/"julio"/"vatios"/"vatio"/"culombios"/"culombio"/"voltios"/"voltio"/"faradios"/"faradio"/"ohmios"/"ohmio"/"siemens"/"webers"/"weber"/"teslas"/"tesla"/"henrios"/"henrio"/"grados"/"grado"/"katals"/"katal"/"becquerels"/"becquerel"/"grays"/"gray"/"sieverts"/"sievert"/"lumens"/"lumen"/"luxs"/"lux")
+Unidad_de_magnitud = ("unidades"/"unidad"/"gramos"/"gramo"/"toneladas"/"tonelada"/"litros"/"litro"/"áreas"/"área"/"hectáreas"/"hectárea"/"grados sexagesimales"/"grado sexagesimal"/"minutos de arco"/"minuto de arco"/"segundos de arco"/"segundo de arco"/"minutos"/"minuto"/"horas"/"hora"/"días"/"día"/"semanas"/"semana"/"meses"/"mes"/"años"/"año"/"lustros"/"lustro"/"décadas"/"década"/"siglos"/"siglo"/"milenios"/"milenio"/"metros cúbicos"/"metro cúbico"/"metros cuadrados"/"metro cuadrado"/"metros"/"metro"/"kilogramonotas"/"kilogramonota"/"amperios"/"amperio"/"kelvins"/"kelvin"/"mols"/"mol"/"candelas"/"candela"/"hercios"/"hercio"/"newtons"/"newton"/"pascals"/"pascal"/"julios"/"julio"/"vatios"/"vatio"/"culombios"/"culombio"/"voltios"/"voltio"/"faradios"/"faradio"/"ohmios"/"ohmio"/"siemens"/"webers"/"weber"/"teslas"/"tesla"/"henrios"/"henrio"/"grados Celsius"/"grado Celsius"/"grados Farenheit"/"grado Farenheit"/"grados Kelvin"/"grado Kelvin"/"katals"/"katal"/"becquerels"/"becquerel"/"grays"/"gray"/"sieverts"/"sievert"/"lumens"/"lumen"/"luxs"/"lux")
 Porcentaje = porcentaje:Numero "%" {return porcentaje}
 Expresion_de_porcentaje = porcentaje:Porcentaje " de " {return porcentaje}
 Resto_de_linea = [^\n]+ {return text().trim()}

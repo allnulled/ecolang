@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Lenguaje para crear economías realistas. En castellano.",
   "main": "index.js",
+  "bin": {
+    "ecolang": "bin/ecolang.js"
+  },
   "directories": {
     "test": "test"
   },
@@ -14,7 +17,14 @@
     "type": "git",
     "url": "git+https://github.com/allnulled/ecolang.git"
   },
-  "keywords": ["economy", "real", "realistic", "savetheserats", "savethem", "savehumanity"],
+  "keywords": [
+    "economy",
+    "real",
+    "realistic",
+    "savetheserats",
+    "savethem",
+    "savehumanity"
+  ],
   "author": "allnulled",
   "license": "WTFPL",
   "bugs": {
