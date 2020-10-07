@@ -63,26 +63,26 @@ Los programas en `ecolang` soportan, actualmente, las siguientes sentencias:
 
 Los cuantificadores de magnitud permiten ahorrarse muchos `0`. Van pegados a la unidad de magnitud, que las listaremos a continuación.
 
-  - `yotta`: `x1.000.000.000.000.000.000.000.000` o `x10<sup>24</sup>`
-  - `zetta`: `x1.000.000.000.000.000.000.000` o `x10<sup>21</sup>`
-  - `exa`:   `x1.000.000.000.000.000.000` o `x10<sup>18</sup>`
-  - `peta`:  `x1.000.000.000.000.000` o `x10<sup>15</sup>`
-  - `tera`:  `x1.000.000.000.000` o `x10<sup>12</sup>`
-  - `giga`:  `x1.000.000.000` o `x10<sup>9</sup>`
-  - `mega`:  `x1.000.000` o `x10<sup>6</sup>`
-  - `kilo`:  `x1.000` o `x10<sup>3</sup>`
-  - `hecto`: `x100` o `x10<sup>2</sup>`
-  - `deca`:  `x10` o `x10<sup>1</sup>`
-  - `deci`:  `x0,1` o `x10<sup>-1</sup>`
-  - `centi`: `x0,01` o `x10<sup>-2</sup>`
-  - `mili`:  `x0,001` o `x10<sup>-3</sup>`
-  - `micro`: `x0,000 001` o `x10<sup>-6</sup>`
-  - `nano`:  `x0,000 000 001` o `x10<sup>-9</sup>`
-  - `pico`:  `x0,000 000 000 001` o `x10<sup>-12</sup>`
-  - `femto`: `x0,000 000 000 000 001` o `x10<sup>-15</sup>`
-  - `atto`:  `x0,000 000 000 000 000 001` o `x10<sup>-18</sup>`
-  - `zepto`: `x0,000 000 000 000 000 000 001` o `x10<sup>-21</sup>`
-  - `yocto`: `x0,000 000 000 000 000 000 000 001` o `x10<sup>-24</sup>`
+  - `yotta`: `x1.000.000.000.000.000.000.000.000` o x10<sup>24</sup>
+  - `zetta`: `x1.000.000.000.000.000.000.000` o x10<sup>21</sup>
+  - `exa`:   `x1.000.000.000.000.000.000` o x10<sup>18</sup>
+  - `peta`:  `x1.000.000.000.000.000` o x10<sup>15</sup>
+  - `tera`:  `x1.000.000.000.000` o x10<sup>12</sup>
+  - `giga`:  `x1.000.000.000` o x10<sup>9</sup>
+  - `mega`:  `x1.000.000` o x10<sup>6</sup>
+  - `kilo`:  `x1.000` o x10<sup>3</sup>
+  - `hecto`: `x100` o x10<sup>2</sup>
+  - `deca`:  `x10` o x10<sup>1</sup>
+  - `deci`:  `x0,1` o x10<sup>-1</sup>
+  - `centi`: `x0,01` o x10<sup>-2</sup>
+  - `mili`:  `x0,001` o x10<sup>-3</sup>
+  - `micro`: `x0,000 001` o x10<sup>-6</sup>
+  - `nano`:  `x0,000 000 001` o x10<sup>-9</sup>
+  - `pico`:  `x0,000 000 000 001` o x10<sup>-12</sup>
+  - `femto`: `x0,000 000 000 000 001` o x10<sup>-15</sup>
+  - `atto`:  `x0,000 000 000 000 000 001` o x10<sup>-18</sup>
+  - `zepto`: `x0,000 000 000 000 000 000 001` o x10<sup>-21</sup>
+  - `yocto`: `x0,000 000 000 000 000 000 000 001` o x10<sup>-24</sup>
 
 ### Magnitudes
 
