@@ -1,0 +1,26 @@
+.CodeMirror .cm-comentario {
+	color: white;
+	font-weight: bold;
+	text-decoration: underline;
+	text-shadow: white;
+}
+.CodeMirror .cm-obtencion,
+.CodeMirror .cm-por-la-via,
+.CodeMirror .cm-se-necesita,
+.CodeMirror .cm-hay,
+.CodeMirror .cm-se-genera {
+	color: blue;
+	text-shadow: 0 0 1px blue;
+}
+.CodeMirror .cm-numero {
+	color: black;
+	text-shadow: 0 0 1px black;
+}
+.CodeMirror .cm-exponente {
+	color: black;
+	text-shadow: 0 0 1px black;
+}
+.CodeMirror .cm-magnitud {
+	color: blue;
+	text-shadow: 0 0 1px black;
+}

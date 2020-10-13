@@ -18,16 +18,19 @@
 Lenguaje = __* sentencias:Sentencias __* {return transformOutput(sentencias)}
 Sentencias = Sentencia_completa*
 Sentencia_completa = sentencia:Nucleo_de_sentencia (EOL+/EOF) {return sentencia}
-Nucleo_de_sentencia = Definicion_de_recurso / Definicion_de_existencias / Cuestion / Comentario
+Nucleo_de_sentencia = Definicion_de_recurso / Definicion_de_existencias / Comentario / Cuestion
 Comentario = "#" comentario:Resto_de_linea {return {tipo:"comentario", comentario}}
-Cuestion = Cuestion_sobre_necesidad
-Cuestion_sobre_necesidad = ("Se necesita ")
-  recurso:Recurso_a_mencionar_en_pregunta
+Cuestion = Cuestion_sobre_necesidad / Cuestion_sobre_posibilidad
+Cuestion_sobre_posibilidad = ("¿se puede obtener "/"¿Se puede obtener "/"¿se pueden obtener "/"¿Se pueden obtener ")
+  recurso:Recurso_a_mencionar_en_pregunta "?"
+  {return {tipo: "cuestion sobre obtención", ...recurso}}
+Cuestion_sobre_necesidad = ("¿qué se necesita para obtener "/"¿Qué se necesita para obtener ")
+  recurso:Recurso_a_mencionar_en_pregunta "?"
   {return {tipo: "cuestión sobre requisitos", ...recurso}}
-Definicion_de_recurso = ("Para obtener ")
-  recurso:Recurso_a_definir
+Definicion_de_recurso = ("para obtener "/"Para obtener ")
+  recurso:Recurso_a_definir (EOL/EOF)
   {return onlyNotNullProperties(recurso)}
-Definicion_de_existencias = ("Hay ")
+Definicion_de_existencias = ("hay " / "Hay ")
   cantidad:Determinante_cuantitativo?
   existencia:Resto_de_linea
   {return {tipo: "existencia", ...cantidad, existencia}}
@@ -42,33 +45,27 @@ Recurso_a_mencionar =
   {return onlyNotNullProperties({porcentaje, ...recurso })}
 Recurso_a_mencionar_en_pregunta = 
   cantidad:Determinante_cuantitativo?
-  recurso:Resto_de_linea
+  recurso:Resto_de_linea_hasta_interrogante
   {return onlyNotNullProperties({ ...cantidad, recurso })}
 Metodos_de_recurso = Metodo_de_recurso*
 Metodo_de_recurso = 
   EOL _ _
-  ("por la vía ")
+  ("por la vía " / "por el método ")
   metodo:Resto_de_linea
   propiedades:Propiedades_de_recurso
   {return onlyNotNullProperties({metodo, ...propiedades})}
 Propiedades_de_recurso =
   requisitos:Propiedades_de_necesidad?
-  generaciones:Propiedades_de_generacion?
   caracteristicas:Propiedades_de_caracteristica?
   {return {requisitos, caracteristicas}}
 Propiedades_de_caracteristica = 
   EOL _ _ _ _
-  ("se caracteriza por")
+  ("se caracterizan por" / "se caracteriza por")
   necesidades:Caracteristicas_de_recurso*
   {return necesidades}
-Propiedades_de_generacion = 
-  EOL _ _ _ _
-  ("se genera")
-  generaciones:Necesidades_de_recurso*
-  {return generaciones}
 Propiedades_de_necesidad =
   EOL _ _ _ _
-  ("se necesita de")
+  ("se necesitan de" / "se necesita de")
   necesidades:Necesidades_de_recurso*
   {return necesidades}
 Necesidades_de_recurso = EOL _ _ _ _ _ _ (!_) recurso:Recurso_a_mencionar {return recurso}
@@ -77,10 +74,11 @@ Determinante_cuantitativo = numero:Numero _ magnitud:Expresion_de_magnitud? {ret
 Expresion_de_magnitud = magnitud:Magnitud _ ("de" _)? {return magnitud}
 Magnitud = Cuantificador_de_magnitud? Unidad_de_magnitud {return text()}
 Cuantificador_de_magnitud = ("yotta"/"zetta"/"exa"/"peta"/"tera"/"giga"/"mega"/"kilo"/"hecto"/"deca"/"deci"/"centi"/"mili"/"micro"/"nano"/"pico"/"femto"/"atto"/"zepto"/"yocto")
-Unidad_de_magnitud = ("unidades"/"gramos"/"toneladas"/"litros"/"áreas"/"hectáreas"/"grado sexagesimals"/"minutos de arcos"/"segundos de arcos"/"minutos"/"horas"/"días"/"semanas"/"años"/"lustros"/"décadas"/"siglos"/"milenios"/"metros cúbicos"/"metros cuadrados"/"metros"/"kilogramonotas"/"amperios"/"kelvins"/"mols"/"candelas"/"hercios"/"newtons"/"pascals"/"julios"/"vatios"/"culombios"/"voltios"/"faradios"/"ohmios"/"siemens"/"webers"/"teslas"/"henrios"/"grados Celsiuss"/"grados Farenheits"/"grados Kelvins"/"katals"/"becquerels"/"grays"/"sieverts"/"lumens"/"luxs")
+Unidad_de_magnitud = ("unidades"/"unidad"/"gramos"/"gramo"/"toneladas"/"tonelada"/"litros"/"litro"/"áreas"/"área"/"hectáreas"/"hectárea"/"grados sexagesimales"/"grado sexagesimal"/"minutos de arco"/"minuto de arco"/"segundos de arco"/"segundo de arco"/"minutos"/"minuto"/"horas"/"hora"/"días"/"día"/"semanas"/"semana"/"meses"/"mes"/"años"/"año"/"lustros"/"lustro"/"décadas"/"década"/"siglos"/"siglo"/"milenios"/"milenio"/"metros cúbicos"/"metro cúbico"/"metros cuadrados"/"metro cuadrado"/"metros"/"metro"/"kilogramonotas"/"kilogramonota"/"amperios"/"amperio"/"kelvins"/"kelvin"/"mols"/"mol"/"candelas"/"candela"/"hercios"/"hercio"/"newtons"/"newton"/"pascals"/"pascal"/"julios"/"julio"/"vatios"/"vatio"/"culombios"/"culombio"/"voltios"/"voltio"/"faradios"/"faradio"/"ohmios"/"ohmio"/"siemens"/"webers"/"weber"/"teslas"/"tesla"/"henrios"/"henrio"/"grados Celsius"/"grado Celsius"/"grados Farenheit"/"grado Farenheit"/"grados Kelvin"/"grado Kelvin"/"katals"/"katal"/"becquerels"/"becquerel"/"grays"/"gray"/"sieverts"/"sievert"/"lumens"/"lumen"/"luxs"/"lux")
 Porcentaje = porcentaje:Numero "%" {return porcentaje}
 Expresion_de_porcentaje = porcentaje:Porcentaje " de " {return porcentaje}
 Resto_de_linea = [^\n]+ {return text().trim()}
+Resto_de_linea_hasta_interrogante = [^\n\?]+ {return text().trim()}
 Numero = [0-9]+ ("." [0-9][0-9][0-9])* ((","/"'")[0-9]+)? {return fromTextToNumber(text())}
 _ = " "
 __ = [\r\n\t ]

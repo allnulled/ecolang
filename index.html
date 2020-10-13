@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="lib/codemirror.css">
+		<link rel="stylesheet" type="text/css" href="lib/codemirror.mode-ecolang.css">
+		<link rel="stylesheet" type="text/css" href="lib/pegeditor.css">
+		<link rel="stylesheet" type="text/css" href="lib/index.css">
+		<script src="lib/jquery.js"></script>
+		<script src="lib/codemirror.js"></script>
+		<script src="lib/codemirror.addon.simple-mode.js"></script>
+		<script src="lib/codemirror.mode-ecolang.js"></script>
+		<script src="lib/ecolang.parser.js"></script>
+		<script src="lib/pegjs.js"></script>
+		<script src="lib/pegeditor.js"></script>
+		<script src="lib/index.js"></script>
+		<title>EcoLang</title>
+	</head>
+	<body>
+		<div class="wrapper horizontal-rows">
+			<div class="box-half box-1">
+				<textarea id="e1" data-pegeditor-grammar="ecolang"></textarea>
+				<div class="editor-label">ecolang</div>
+			</div>
+			<div class="box-half box-2">
+				<textarea id="e2" data-pegeditor-settings='{"mode":"ecolang-reporte"}'></textarea>
+				<div class="editor-label">resultado</div>
+			</div>
+			<div class="buttons-panel">
+				<button class="change-view-button">
+					<img src="lib/eye.png">
+				</button>
+				<button class="change-download-button">
+					<img src="lib/output.png">
+				</button>
+			</div>
+		</div>
+	</body>
+</html>

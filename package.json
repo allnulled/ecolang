@@ -2,7 +2,7 @@
   "name": "ecolang",
   "version": "0.0.1",
   "description": "Lenguaje para crear economías realistas. En castellano.",
-  "main": "index.js",
+  "main": "src/ecolang.api.js",
   "bin": {
     "ecolang": "bin/ecolang.js"
   },
@@ -10,8 +10,10 @@
     "test": "test"
   },
   "scripts": {
-    "build": "pegjs --format umd --output ./src/ecolang.js ./src/ecolang.pegjs",
-    "test": "npm run build && mocha test/test.*.js --bail"
+    "build": "pegjs --format umd --export-var EcoLang --output ./src/ecolang.js ./src/ecolang.pegjs && node fix.js",
+    "test": "npm run build && mocha test/test.*.js --bail",
+    "dev": "chokidar src/ecolang.pegjs -c 'npm run build'"
+
   },
   "repository": {
     "type": "git",
